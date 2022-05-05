@@ -19,20 +19,16 @@ class CalanderScreen extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(15),
               height: height * 0.5,
+              //in hear we use carosal calander component. if you wanna additional details about
+              //please visit to https://pub.dev/packages/flutter_calendar_carousel
               child: CalendarCarousel<Event>(
-                onDayPressed: (DateTime date, List<Event> events) {
-                  //this.setState(() => _currentDate = date);
-                },
+                onDayPressed: (DateTime date, List<Event> events) {},
                 weekendTextStyle: TextStyle(
                   color: Colors.black,
                 ),
                 thisMonthDayBorderColor: Colors.grey,
                 weekdayTextStyle: TextStyle(color: Colors.black),
-
                 weekFormat: false,
-                //markedDatesMap: _markedDateMap,
-
-                //selectedDateTime: _currentDate,
                 daysHaveCircularBorder: false,
               ),
             ),

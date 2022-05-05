@@ -35,10 +35,10 @@ class AbstractHomeView extends StatelessWidget {
                   onPressed: () => {Navigator.of(context).pushNamed('/map')},
                   icon: Assets.images.markerMap.image()),
               IconButton(
-                  onPressed: () => {}, icon: Assets.images.roundPlus.image()),
+                  onPressed: () => {Navigator.of(context).pushNamed('/addMeeting')}, icon: Assets.images.roundPlus.image()),
               IconButton(onPressed: () => {}, icon: Assets.images.bell.image()),
               IconButton(
-                  onPressed: () => {}, icon: Assets.images.profile.image()),
+                  onPressed: () => {Navigator.of(context).pushNamed('/profile')}, icon: Assets.images.profile.image()),
             ],
           ),
         ),

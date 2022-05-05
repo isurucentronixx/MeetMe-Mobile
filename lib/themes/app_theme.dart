@@ -79,7 +79,19 @@ ThemeData getAppTheme() {
         fontWeight: FontWeight.normal,
         color: Colors.grey,
       ),
-    ),
+      labelMedium: TextStyle(
+        fontSize: 20.sp,
+        fontWeight: FontWeight.normal,
+        color: Colors.black,
+
+      )
+
+     
+    )
+    
+    
+    
+    ,
     colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
         .copyWith(secondary: AppColors.accent),
   );
