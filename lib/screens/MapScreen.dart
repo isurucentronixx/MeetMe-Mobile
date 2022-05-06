@@ -7,6 +7,7 @@ import 'package:flutter_calendar_carousel/classes/event_list.dart';
 import 'package:intl/intl.dart' show DateFormat;
 import 'package:meet_me_app/widgets/AbstractHomeWidget.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:meet_me_app/widgets/AvatarCard.dart';
 
 import '../widgets/buttons.dart';
 
@@ -50,40 +51,22 @@ class MapScreen extends StatelessWidget {
                         ),
                         Container(
                           padding: EdgeInsets.symmetric(vertical: 10),
+                          
                           //color: Colors.red,
-                          child: Row(
-                            children: [
-                              Container(
-                                // color: Colors.yellow,
-                                margin: EdgeInsets.only(right: 10),
-                                child: Column(
+                          child: Scrollbar(
+                            child: Expanded(
+                              child: SingleChildScrollView(
+                                child: Row(
                                   children: [
-                                    CircleAvatar(backgroundColor: Colors.green),
-                                    Text("Jeewantha")
+                                    AvatarCard(name: "Jeewantha"),
+                                    AvatarCard(name: "Ashmini"),
+                                    AvatarCard(name: "Uditha"),
+                                    AvatarCard(name: "Gayan"),
+                                    
                                   ],
                                 ),
                               ),
-                              Container(
-                                // color: Colors.yellow,
-                                margin: EdgeInsets.only(right: 10),
-                                child: Column(
-                                  children: [
-                                    CircleAvatar(backgroundColor: Colors.green),
-                                    Text("Jeewantha")
-                                  ],
-                                ),
-                              ),
-                              Container(
-                                // color: Colors.yellow,
-                                margin: EdgeInsets.only(right: 10),
-                                child: Column(
-                                  children: [
-                                    CircleAvatar(backgroundColor: Colors.green),
-                                    Text("Jeewantha")
-                                  ],
-                                ),
-                              ),
-                            ],
+                            ),
                           ),
                         ),
                         Container(

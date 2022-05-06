@@ -1,6 +1,7 @@
-import 'dart:html';
+import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:meet_me_app/widgets/ContactCard.dart';
 import 'package:meet_me_app/widgets/app_bar.dart';
 
 class EditMeetingScreen extends StatelessWidget {
@@ -126,70 +127,66 @@ class EditMeetingScreen extends StatelessWidget {
                   ),
                   //participants list
                   Container(
-                    color: Colors.purple,
+                    //color: Colors.purple,
                     height: availableHeight * 0.2,
-                    child: SingleChildScrollView(
-                      child: Column(
-                        
-                        children: [
-
-                          Container(
-                            color: Colors.red,
-                            padding: EdgeInsets.only(bottom: 10),
-                            child: Row(
-                              children: [
-                                Container(
-                                  padding: EdgeInsets.only(right: 10),
-                                  child: CircleAvatar(backgroundColor: Colors.green),
-                                ),
-
-                                Container(
-                                  child: Column(
-                                    children: [
-                                      Text("Jeewantha"),
-                                      Text("+ 94 714874141"),
-                                    ],
-                                  ),
-                                ),
-                                
-                              ],
-                            ),
-                          ),
-
-
-
-                          Row(children: [
-                            CircleAvatar(backgroundColor: Colors.green),
-                            Text("Jeewantha"),
-
-                          ]),
-                                      
-                          Row(children: [
-                            CircleAvatar(backgroundColor: Colors.green),
-                            Text("Jeewantha")
-                          ]),
-                                      
-                          Row(children: [
-                            CircleAvatar(backgroundColor: Colors.green),
-                            Text("Jeewantha")
-                          ]),
-                    
-                          Row(children: [
-                            CircleAvatar(backgroundColor: Colors.green),
-                            Text("Jeewantha")
-                          ]),
-                    
-                          Row(children: [
-                            CircleAvatar(backgroundColor: Colors.green),
-                            Text("Jeewantha")
-                          ])
-                        ],
+                    child: Scrollbar(
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            ContactCard(
+                                name: "Jeewantha Madubashana",
+                                contactNumber: "+94 123456789"),
+                            ContactCard(
+                                name: "Uduitha Eranga",
+                                contactNumber: "+94 123456789"),
+                            ContactCard(
+                                name: "Ashmini Wijesekara",
+                                contactNumber: "+94 123456789"),
+                            ContactCard(
+                                name: "Sachini Rajasingha",
+                                contactNumber: "+94 123456789"),
+                            ContactCard(
+                                name: "Basil Rajapaksha",
+                                contactNumber: "+94 123456789"),
+                            ContactCard(
+                                name: "Namal Rajapaksha",
+                                contactNumber: "+94 123456789"),
+                            ContactCard(
+                                name: "Chamal Rajapaksha",
+                                contactNumber: "+94 123456789"),
+                            ContactCard(
+                                name: "Naml Rajapaksha",
+                                contactNumber: "+94 123456789"),
+                            ContactCard(
+                                name: "Gotabhaya Rajapaksha",
+                                contactNumber: "+94 123456789"),
+                            ContactCard(
+                                name: "Hashan Rajapaksha",
+                                contactNumber: "+94 123456789"),
+                          ],
+                        ),
                       ),
+                    ),
+                  ),
+
+                  //add participatns
+                  Container(
+                    color: Colors.red,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('Add Participants'),
+                        IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Icons.add_circle_outline_rounded),
+                          
+                        )
+                      ],
                     ),
                   )
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
