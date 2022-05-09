@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:meet_me_app/widgets/buttons.dart';
+import 'package:meet_me_app/widgets/Buttons.dart';
 import 'package:meet_me_app/widgets/safe_padded_loading_overlay.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

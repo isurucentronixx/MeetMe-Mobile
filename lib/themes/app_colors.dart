@@ -30,12 +30,14 @@ import 'package:flutter/material.dart';
 // 5%   0D
 
 class AppColors {
-  static const Color background = Colors.white;
+  static const Color background = Colors.green;
   static Color accent = Color(0xff17c063);
   static Color disabled = Colors.black12;
   static Color error = Color(0xffff7466);
   static Color divider = Colors.black54;
+  static Color text = Colors.black;
 
   static Color signIn = Color(0xff4285f4);
   static Color signOut = Color(0xffc53829);
+  
 }

@@ -63,3 +63,59 @@ class MainTextButton extends StatelessWidget {
     );
   }
 }
+
+class MainDateTimePicker extends StatelessWidget {
+  late final String buttonText;
+  late final IconData? icons;
+  late final VoidCallback onSelected;
+  late final TextStyle? textStyle;
+  late final FontWeight? fontWeight;
+
+  MainDateTimePicker({
+    required this.buttonText,
+    this.icons,
+    required this.onSelected,
+    this.fontWeight,
+    this.textStyle,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Row(
+        children: [
+          Expanded(
+              child: InkWell(
+            onTap: () => onSelected(),
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                      padding: EdgeInsets.only(
+                        right: 14.58.w,
+                      ),
+                      child: Text(buttonText)),
+                  Icon(
+                    icons,
+                    color: Colors.black,
+                  )
+                ],
+              ),
+              height: 50.0,
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(
+                    color: Colors.grey,
+                  ),
+                  borderRadius: BorderRadius.circular(4.17)),
+            ),
+          )),
+        ],
+      ),
+    );
+  }
+}
+
+

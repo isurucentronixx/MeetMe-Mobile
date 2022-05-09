@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meet_me_app/themes/font_size.dart';
-import 'package:meet_me_app/widgets/buttons.dart';
+import 'package:meet_me_app/widgets/Buttons.dart';
 
 import 'package:meet_me_app/widgets/safe_padded_loading_overlay.dart';
 import 'package:sizer/sizer.dart';

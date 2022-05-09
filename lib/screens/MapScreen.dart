@@ -9,7 +9,7 @@ import 'package:meet_me_app/widgets/AbstractHomeWidget.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:meet_me_app/widgets/AvatarCard.dart';
 
-import '../widgets/buttons.dart';
+import '../widgets/Buttons.dart';
 
 class MapScreen extends StatelessWidget {
   @override
