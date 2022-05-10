@@ -5,11 +5,11 @@ import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart'
 import 'package:flutter_calendar_carousel/classes/event.dart';
 import 'package:flutter_calendar_carousel/classes/event_list.dart';
 import 'package:intl/intl.dart' show DateFormat;
-import 'package:meet_me_app/widgets/AbstractHomeWidget.dart';
+import 'package:meet_me_app/widgets/abstract_home_widget.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:meet_me_app/widgets/AvatarCard.dart';
+import 'package:meet_me_app/widgets/avatar_card.dart';
 
-import '../widgets/Buttons.dart';
+import '../widgets/buttons.dart';
 
 class MapScreen extends StatelessWidget {
   @override
@@ -19,7 +19,7 @@ class MapScreen extends StatelessWidget {
 
     double availableHeight =
         MediaQuery.of(context).size.height - kBottomNavigationBarHeight;
-        
+
     const CameraPosition _initialPosition =
         CameraPosition(target: LatLng(24.903623, 67.198367));
     return AbstractHomeView(
@@ -51,7 +51,7 @@ class MapScreen extends StatelessWidget {
                         ),
                         Container(
                           padding: EdgeInsets.symmetric(vertical: 10),
-                          
+
                           //color: Colors.red,
                           child: Scrollbar(
                             child: Expanded(
@@ -62,7 +62,6 @@ class MapScreen extends StatelessWidget {
                                     AvatarCard(name: "Ashmini"),
                                     AvatarCard(name: "Uditha"),
                                     AvatarCard(name: "Gayan"),
-                                    
                                   ],
                                 ),
                               ),
@@ -121,7 +120,8 @@ class MapScreen extends StatelessWidget {
                                       alignment: Alignment.center,
                                       child: MainElevatedButton(
                                         onPressed: () => {
-                                          Navigator.of(context).pushNamed('/editMeeting')
+                                          Navigator.of(context)
+                                              .pushNamed('/editMeeting')
                                         },
                                         child: Text("Edit MeetMe"),
                                       ),
@@ -149,7 +149,6 @@ class MapScreen extends StatelessWidget {
                                   children: [
                                     Expanded(
                                         child: Container(
-                                     
                                       alignment: Alignment.center,
                                       child: MainElevatedButton(
                                         onPressed: () => {},

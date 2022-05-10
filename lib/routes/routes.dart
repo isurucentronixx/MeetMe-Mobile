@@ -1,14 +1,15 @@
-import 'package:meet_me_app/screens/AddMeScreen.dart';
-import 'package:meet_me_app/screens/CalendarScreen.dart';
-import 'package:meet_me_app/screens/EditMeeting.dart';
-import 'package:meet_me_app/screens/HomeScreen.dart';
-import 'package:meet_me_app/screens/MapScreen.dart';
-import 'package:meet_me_app/screens/OTPScreen.dart';
-import 'package:meet_me_app/screens/ProfileScreen.dart';
+import 'package:meet_me_app/screens/add_meeting_screen.dart';
+import 'package:meet_me_app/screens/calendar_screen.dart';
+import 'package:meet_me_app/screens/edit_meeting_screen.dart';
+import 'package:meet_me_app/screens/home_screen.dart';
+import 'package:meet_me_app/screens/map_screen.dart';
+import 'package:meet_me_app/screens/notifications_screen.dart';
+import 'package:meet_me_app/screens/otp_screen.dart';
+import 'package:meet_me_app/screens/profile_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
-import 'package:meet_me_app/screens/LoginScreen.dart';
+import 'package:meet_me_app/screens/login_screen.dart';
 
 //routes
 
@@ -37,7 +38,10 @@ class Routes {
         return MaterialPageRoute(builder: (context) => AddMeScreen());   
 
       case '/editMeeting':
-        return MaterialPageRoute(builder: (context) => EditMeetingScreen());   
+        return MaterialPageRoute(builder: (context) => EditMeetingScreen());  
+
+      case '/notifications':
+        return MaterialPageRoute(builder: (context) => NotificationsScreen());    
 
       default:
         return MaterialPageRoute(builder: (context) => LoginScreen());

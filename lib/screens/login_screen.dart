@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:meet_me_app/widgets/Buttons.dart';
+import 'package:meet_me_app/widgets/buttons.dart';
 import 'package:meet_me_app/widgets/safe_padded_loading_overlay.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,7 +8,7 @@ import 'package:meet_me_app/validation/validator.dart';
 import 'package:meet_me_app/providers/login_model_provider.dart';
 
 class LoginScreen extends StatelessWidget {
-  final _formKey = GlobalKey<FormState>();
+  static GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -18,63 +18,66 @@ class LoginScreen extends StatelessWidget {
           body: SafePaddedLoadingOverlay(
             isLoading: model.isInAsyncCall,
             padding: EdgeInsets.symmetric(horizontal: 25.w, vertical: 25.h),
-            child: Center(
-              child: Column(
-                children: [
-                  Container(
-                    height: 130.h,
-                    alignment: Alignment.center,
-                    padding: EdgeInsets.only(bottom: 40.h),
-                    child: Image.asset(
-                      'assets/images/meet-me.png',
-                      fit: BoxFit.contain,
-                      alignment: Alignment.centerLeft,
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Container(
-                        child: Text(
-                          "Login",
-                          style: Theme.of(context).textTheme.headline1,
-                        ),
+            child: SingleChildScrollView(
+              child: Center(
+                child: Column(
+                  children: [
+                    Container(
+                      height: 130.h,
+                      alignment: Alignment.center,
+                      padding: EdgeInsets.only(bottom: 40.h),
+                      child: Image.asset(
+                        'assets/images/meet-me.png',
+                        fit: BoxFit.contain,
+                        alignment: Alignment.centerLeft,
                       ),
-                      TextButton(
-                        onPressed: () {
-                          model.updateModel(isEmailAuth: !model.isEmailAuth);
-                        },
-                        child: model.isEmailAuth
-                            ? Text(
-                                "Use phone number insted",
-                                style: TextStyle(fontSize: 12.sp),
-                              )
-                            : Text(
-                                "Use Email Insted",
-                                style: TextStyle(fontSize: 12.sp),
-                              ),
-                      )
-                    ],
-                  ),
-                  Form(
-                    key: _formKey,
-                    child: _buildLoginForm(context, model),
-                  ),
-                  MainElevatedButton(
-                    onPressed: () => {
-                      if (!FocusScope.of(context).hasPrimaryFocus)
-                        {
-                          FocusScope.of(context).unfocus(),
-                        },
-                      _login(context, model)
-                    },
-                    child: model.isEmailAuth ? Text("Login") : Text("Send OTP"),
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(bottom: 10.h),
-                  ),
-                ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Container(
+                          child: Text(
+                            "Login",
+                            style: Theme.of(context).textTheme.headline1,
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            model.updateModel(isEmailAuth: !model.isEmailAuth);
+                          },
+                          child: model.isEmailAuth
+                              ? Text(
+                                  "Use phone number insted",
+                                  style: TextStyle(fontSize: 12.sp),
+                                )
+                              : Text(
+                                  "Use Email Insted",
+                                  style: TextStyle(fontSize: 12.sp),
+                                ),
+                        )
+                      ],
+                    ),
+                    Form(
+                      key: _formKey,
+                      child: _buildLoginForm(context, model),
+                    ),
+                    MainElevatedButton(
+                      onPressed: () => {
+                        if (!FocusScope.of(context).hasPrimaryFocus)
+                          {
+                            FocusScope.of(context).unfocus(),
+                          },
+                        _login(context, model)
+                      },
+                      child:
+                          model.isEmailAuth ? Text("Login") : Text("Send OTP"),
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(bottom: 10.h),
+                    ),
+                  ],
+                ),
               ),
             ),
           ));

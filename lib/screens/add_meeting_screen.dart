@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:meet_me_app/screens/icon_and_text_button_custom.dart';
-import 'package:meet_me_app/widgets/Buttons.dart';
+import 'package:meet_me_app/widgets/buttons.dart';
 
 class AddMeScreen extends StatefulWidget {
   const AddMeScreen({Key? key}) : super(key: key);

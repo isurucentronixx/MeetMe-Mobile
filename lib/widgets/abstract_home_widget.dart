@@ -6,16 +6,16 @@ enum SelectedView { none, clander, map, addmeeting, notification, profile }
 class AbstractHomeView extends StatelessWidget {
   final SelectedView selectedView;
   final Widget child;
+  final PreferredSizeWidget? appBar;
 
-  const AbstractHomeView({
-    Key? key,
-    required this.selectedView,
-    required this.child,
-  }) : super(key: key);
+  const AbstractHomeView(
+      {Key? key, required this.selectedView, required this.child, this.appBar})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: appBar,
       body: child,
       bottomNavigationBar: BottomAppBar(
         notchMargin: 8,
@@ -35,10 +35,17 @@ class AbstractHomeView extends StatelessWidget {
                   onPressed: () => {Navigator.of(context).pushNamed('/map')},
                   icon: Assets.images.markerMap.image()),
               IconButton(
-                  onPressed: () => {Navigator.of(context).pushNamed('/addMeeting')}, icon: Assets.images.roundPlus.image()),
-              IconButton(onPressed: () => {}, icon: Assets.images.bell.image()),
+                  onPressed: () =>
+                      {Navigator.of(context).pushNamed('/addMeeting')},
+                  icon: Assets.images.roundPlus.image()),
               IconButton(
-                  onPressed: () => {Navigator.of(context).pushNamed('/profile')}, icon: Assets.images.profile.image()),
+                  onPressed: () =>
+                      {Navigator.of(context).pushNamed('/notifications')},
+                  icon: Assets.images.bell.image()),
+              IconButton(
+                  onPressed: () =>
+                      {Navigator.of(context).pushNamed('/profile')},
+                  icon: Assets.images.profile.image()),
             ],
           ),
         ),
