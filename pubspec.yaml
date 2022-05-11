@@ -23,6 +23,14 @@ dependencies:
   flutter_calendar_carousel: ^2.1.0
   google_maps_flutter: ^2.1.2
   calendar_view: ^0.0.4
+  uuid: ^3.0.5
+  flutter_switch: ^0.3.2
+  # dependancy for the firebase
+  firebase_core: 1.12.0
+  firebase_auth: 3.3.4
+  firebase_storage: 10.2.7
+  cloud_firestore: ^3.1.8
+  cloud_functions: ^3.2.7
 
 dev_dependencies:
   flutter_test:

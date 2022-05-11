@@ -20,7 +20,9 @@ class Routes {
         return MaterialPageRoute(builder: (context) => LoginScreen());
 
       case '/otp':
-        return MaterialPageRoute(builder: (context) => OTPScreen());  
+        return MaterialPageRoute(
+            builder: (context) =>
+                OTPScreen(phoneNumber: settings.arguments as String));  
 
       case '/home':
         return MaterialPageRoute(builder: (context) => HomeScreen());   

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "918622137625",
+    "firebase_url": "https://meetme-41b9e.firebaseio.com",
+    "project_id": "meetme-41b9e",
+    "storage_bucket": "meetme-41b9e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:918622137625:android:94e04cf5f6e7d22dbd2988",
+        "android_client_info": {
+          "package_name": "com.example.meet_me_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "918622137625-ds0qo1fbeat4n4rmhcq726fupcmm2es4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeOZH6KJ8ZxEeJ3geV-qjOW5Q6PUyT2TE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "918622137625-ds0qo1fbeat4n4rmhcq726fupcmm2es4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

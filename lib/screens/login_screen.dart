@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:meet_me_app/providers/user_service_provider.dart';
 import 'package:meet_me_app/widgets/buttons.dart';
 import 'package:meet_me_app/widgets/safe_padded_loading_overlay.dart';
 import 'package:provider/provider.dart';
@@ -9,6 +11,7 @@ import 'package:meet_me_app/providers/login_model_provider.dart';
 
 class LoginScreen extends StatelessWidget {
   static GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
+  FirebaseAuth auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -171,23 +174,71 @@ class LoginScreen extends StatelessWidget {
           icon: Icon(Icons.phone),
           labelText: "Phone number",
         ),
-        keyboardType: TextInputType.emailAddress,
-        onSaved: (phoneNumber) {
-          // if (email != null) {
-          //   model.updateModel(email: email.trim());
-          // }
+        keyboardType: TextInputType.text,
+        onChanged: (input) {
+          if (input != null) {
+            model.updateModel(phoneNumber: input.trim());
+          }
         },
-        validator: (email) {
-          // if (!Validator.validateEmail(email)) {
-          //   return "Enter a valid email address";
-          // }
-          // return null;
+        validator: (input) {
+          if (input == null || input.isEmpty) {
+            return "Enter a valid phone number";
+          }
+          return null;
         },
       ),
     );
   }
 
   _login(BuildContext context, LoginModelProvider model) async {
-    Navigator.of(context).pushNamed('/otp');
+    final auth = Provider.of<AuthProvider>(context, listen: false);
+
+    debugPrint(model.phoneNumber);
+
+    await Navigator.of(context)
+        .pushNamed('/otp', arguments: model.phoneNumber);
+
+    if (auth.user != null) {
+      FirebaseAuth.instance.signOut();
+    }
+
+    final state = _formKey.currentState;
+
+    // if (state != null && state.validate()) {
+    //   state.save();
+    //   model.updateModel(isInAsyncCall: true);
+    //   final isExists = await auth.firebaseService
+    //       .isUserExists(email: model.email, phoneNumber: model.phoneNumber);
+    //   if (!isExists) {
+    //     model.updateModel(isInAsyncCall: false);
+    //     final snackBar = SnackBar(
+    //       content: Text("Account doesn't exist. Please sign-up!"),
+    //       backgroundColor: Theme.of(context).errorColor,
+    //     );
+    //     ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    //   }
+    //   else {
+    //     if (model.isEmailAuth) {
+    //       await auth.userService.signInWithEmail(context,
+    //           email: model.email, password: model.password);
+    //     } else {
+
+    //           debugPrint(model.phoneNumber);
+
+    //       // await Navigator.of(context)
+    //       //     .pushNamed('/verifyPhone', arguments: model.phoneNumber);
+    //     }
+    //   }
+    //   model.updateModel(isInAsyncCall: false);
+    //   if (auth.user != null) {
+    //     Navigator.of(context)
+    //         .pushNamedAndRemoveUntil('/home', (route) => route.isFirst);
+    //   }
+    // }
+
+    //debugPrint('movieTitle: $auth');
+    //auth.verifyPhoneNumber(phoneNumber: phoneNumber, verificationCompleted: verificationCompleted, verificationFailed: verificationFailed, codeSent: codeSent, codeAutoRetrievalTimeout: codeAutoRetrievalTimeout)
+
+    //Navigator.of(context).pushNamed('/otp');
   }
 }
