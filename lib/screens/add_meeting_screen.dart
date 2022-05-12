@@ -122,7 +122,7 @@ class _AddMeScreenState extends State<AddMeScreen> {
                   children: [
                     Row(
                       children: [
-                        IconAndTextButton(
+                        MainDateTimePicker(
                           buttonText: 'MM/DD/YYYY',
                           fontWeight: FontWeight.w600,
                           icons: Icons.date_range_outlined,
@@ -139,9 +139,10 @@ class _AddMeScreenState extends State<AddMeScreen> {
                         SizedBox(
                           width: 12.0.w,
                         ),
-                        IconAndTextButton(
+                        MainDateTimePicker(
                           buttonText: '00.00 PM',
                           fontWeight: FontWeight.w600,
+                          icons: Icons.date_range_outlined,
                           onSelected: () async {
                             await showTimePicker(
                               context: context,
@@ -158,7 +159,7 @@ class _AddMeScreenState extends State<AddMeScreen> {
                     ),
                     Row(
                       children: [
-                        IconAndTextButton(
+                        MainDateTimePicker(
                           buttonText: 'MM/DD/YYYY',
                           fontWeight: FontWeight.w600,
                           icons: Icons.date_range_outlined,
@@ -175,9 +176,10 @@ class _AddMeScreenState extends State<AddMeScreen> {
                         SizedBox(
                           width: 12.0.w,
                         ),
-                        IconAndTextButton(
+                        MainDateTimePicker(
                           buttonText: '00.00 PM',
                           fontWeight: FontWeight.w600,
+                          icons: Icons.date_range_outlined,
                           onSelected: () async {
                             await showTimePicker(
                               context: context,
@@ -257,7 +259,7 @@ class _AddMeScreenState extends State<AddMeScreen> {
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        centerTitle: true,
+        centerTitle: false,
         backgroundColor: Colors.white,
         title: const Text(
           'Add a MeetMe',
@@ -266,6 +268,9 @@ class _AddMeScreenState extends State<AddMeScreen> {
       ),
       // Here we have initialized the stepper widget
       body: Stepper(
+        controlsBuilder: (context, details) {
+          return (Container());
+        },
         type: StepperType.horizontal,
         currentStep: _activeCurrentStep,
         steps: stepList(),
